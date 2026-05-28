@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
       
       if (res.ok) {
         const data = await res.json();
-        // ✅ Adapter selon la structure réelle de votre API :
+        //  Adapter selon la structure réelle de votre API :
         setUser(data.user || data); // Si API retourne { user: {...} } ou juste {...}
       } else {
         // Token invalide ou expiré
@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
       throw new Error(data.message || data.error || 'Échec de la connexion');
     }
     
-    // ✅ Stocker token et user explicitement
+    //  Stocker token et user explicitement
     localStorage.setItem('auth_token', data.token);
     setToken(data.token);
     setUser(data.user || data); // Adapter selon structure API

@@ -90,7 +90,7 @@ export default function AdminLogin() {
       </div>
     </div>
   );
-  // ✅ Ajouter en haut du composant
+  //  Ajouter en haut du composant
 useEffect(() => {
   if (user) {
     navigate('/admin', { replace: true });

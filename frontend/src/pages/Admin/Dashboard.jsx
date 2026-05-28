@@ -123,7 +123,7 @@ export default function AdminDashboard() {
               <option value="en_attente">En attente</option>
               <option value="confirme">Confirmée</option>
               <option value="annule">Annulée</option>
-              <option value="supprimer">Supprimer</option>
+              
             </select>
             <input type="text" placeholder="Rechercher..." value={filters.search} onChange={(e) => setFilters({...filters, search: e.target.value})} className="px-4 py-2 border rounded-lg" />
           </div>
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
           <option value="en_attente">En attente</option>
           <option value="confirme">Confirmée</option>
           <option value="annule">Annulée</option>
-          <option value="supprimer">Supprimer</option>
+          
         </select>
       </td>
       <td className="px-4 py-3">

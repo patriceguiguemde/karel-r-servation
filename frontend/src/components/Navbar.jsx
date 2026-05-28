@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; //  Import du contexte
+import { useAuth } from '../context/AuthContext';
 
 function Navbar() {
-  const { token, user, logout, hasRole } = useAuth(); //  Récupération de l'auth
+  const { token, user, logout, hasRole } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,48 +13,17 @@ function Navbar() {
   return (
     <nav className="relative bg-white py-4 px-4 sm:px-8 border-none shadow-none sticky top-0 z-50">
       
-      {/* CONNEXION/DÉCONNEXION - Conditionnel selon l'auth */}
-      <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-2 z-10">
-        {token ? (
-          //  Utilisateur connecté
-          <>
-            <span className="text-sm text-gray-600 hidden sm:inline">
-              {user?.name} <span className="text-xs text-gray-400">({user?.role})</span>
-            </span>
-            
-            {/* Lien vers dashboard selon le rôle */}
-            {hasRole('admin', 'agent') ? (
-              <Link to="/admin" className="text-xs text-[#9caf88] hover:underline">
-                Dashboard
-              </Link>
-            ) : (
-              <Link to="/dashboard" className="text-xs text-[#9caf88] hover:underline">
-                Mon compte
-              </Link>
-            )}
-            
-            <button 
-              onClick={handleLogout} 
-              className="text-xs text-red-600 hover:underline ml-2"
-            >
-              Déconnexion
-            </button>
-          </>
-        ) : (
-          //  Utilisateur non connecté
-          <>
-            <Link 
-              to="/login" 
-              className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium transition-colors rounded-lg"
-            >
-              Se connecter
-            </Link>
+      {/* ============================================
+          CONNEXION/DÉCONNEXION - Section supprimée
+          ============================================ */}
+      {/* 
+        L'affichage "Admin Karel (admin) Déconnexion" a été complètement supprimé.
+        La navbar affiche maintenant uniquement le titre et le menu principal.
+      */}
 
-          </>
-        )}
-      </div>
-
-      {/* CONTENU CENTRÉ (Titre + Menu) */}
+      {/* ============================================
+          CONTENU CENTRÉ (Titre + Menu)
+          ============================================ */}
       <div className="flex flex-col items-center gap-3">
         <h1 className="m-0 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 text-center">
           KAREL TRAVELS EXCURSIONS
@@ -85,8 +54,6 @@ function Navbar() {
           >
             Contacter 
           </Link>
-          
-          
         </div>
       </div>
     </nav>

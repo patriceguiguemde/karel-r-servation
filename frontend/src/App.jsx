@@ -35,7 +35,7 @@ function AdminRoute({ children }) {
   return children;
 }
 
-function Login() {
+ /* function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -119,7 +119,7 @@ function Login() {
     </div>
   );
 }
-
+*/
 function App() {
   return (
     <AuthProvider>
@@ -135,7 +135,7 @@ function App() {
               <Route path="/reservation/:type" element={<DynamicReservation />} />
 
               {/* Connexion */}
-              <Route path="/login" element={<Login />} />
+             {/*<Route path="/login" element={<Login />} />*/} 
               <Route path="/admin-login" element={<AdminLogin />} />
 
               {/* Route ADMIN protégée */}
