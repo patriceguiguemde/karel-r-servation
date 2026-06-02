@@ -80,7 +80,7 @@ export default function AdminDashboard() {
     }
   };
 
-  // 🔥 NOUVEAU : Déclenche le filtre quand on clique sur une carte
+  //  NOUVEAU : Déclenche le filtre quand on clique sur une carte
   const handleStatCardClick = (status) => {
     setFilters(prev => ({ ...prev, status: status }));
   };
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
               <tr>
                 <th className="px-4 py-3 text-left text-sm font-semibold">ID</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Nom</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Prénom</th> {/* ✅ Typo corrigée */}
+                <th className="px-4 py-3 text-left text-sm font-semibold">Prénom</th> {/*  Typo corrigée */}
                 <th className="px-4 py-3 text-left text-sm font-semibold">Email</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Service</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Date</th>

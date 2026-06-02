@@ -36,21 +36,20 @@ export default function Home() {
     
     {/* Boutons */}
     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-      <Link 
-        to="/reservation" 
-        className="bg-[#9caf88] hover:bg-[#8a9978] text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 shadow-2xl hover:scale-105"
-      >
-        Réserver maintenant
-      </Link>
-      <a 
-  href="#services" 
-  className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-[#2c5e3a] px-10 py-4 rounded-full font-semibold transition-all duration-300"
->
-  Découvrir nos services
-</a>
-    </div>
-  </div>
-
+  <Link 
+    to="/reservation" 
+    className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 shadow-2xl hover:scale-105"
+  >
+    Réserver maintenant
+  </Link>
+  <a 
+    href="#services" 
+    className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-blue-900 px-10 py-4 rounded-full font-semibold transition-all duration-300"
+  >
+    Découvrir nos services
+  </a>
+</div>
+</div>
   <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
     <div className="w-10 h-16 border-2 border-white/60 rounded-full flex justify-center pt-2">
       <div className="w-1 h-3 bg-white rounded-full animate-scroll"></div>
@@ -61,7 +60,7 @@ export default function Home() {
 {/* ========== SERVICES ========== */}
 <section id="services" className="py-20 bg-gray-100">
   <div className="w-full px-8">
-    <h2 className="text-4xl font-bold text-center mb-3 text-gray-800">Nos Services</h2>
+    <h2 className="text-4xl font-bold text-center mb-3 !text-red-700">Nos Services</h2>
     <p className="text-center text-gray-600 mb-12 text-lg mx-auto">
       Une gamme complète de prestations sur mesure pour vos déplacements et séjours
     </p>
@@ -77,9 +76,9 @@ export default function Home() {
       onError={(e)=>{e.target.src='https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&h=500&q=80'}}
     />
     <div className="p-6 text-center">
-      <h3 className="text-xl font-bold text-gray-800 mb-2">Billets d'Avion</h3>
+     <h3 className="text-xl font-bold !text-red-700 mb-2">Billets d'Avion</h3>
       <p className="text-gray-500 mb-2 text-sm">Réservation de vols toutes destinations aux meilleurs tarifs.</p>
-      <p className="text-[#9caf88] font-bold text-sm">À partir de 100 000 FCFA</p>
+     <p className="text-blue-900 font-bold text-sm">À partir de 60 000 FCFA</p>
     </div>
   </div>
 
@@ -92,9 +91,9 @@ export default function Home() {
       onError={(e)=>{e.target.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&h=500&q=80'}}
     />
     <div className="p-6 text-center">
-      <h3 className="text-xl font-bold text-gray-800 mb-2">Hôtellerie & Séjours</h3>
+      <h3 className="text-xl font-bold !text-red-800 mb-2">Hôtellerie & Séjours</h3>
       <p className="text-gray-500 mb-2 text-sm">Hôtels, résidences et appartements meublés. Tarifs groupes.</p>
-      <p className="text-[#9caf88] font-bold text-sm">À partir de 30 000 FCFA/nuit</p>
+     <p className="text-blue-900 font-bold text-sm">À partir de 30 000 FCFA</p>
     </div>
   </div>
 
@@ -107,9 +106,9 @@ export default function Home() {
       onError={(e)=>{e.target.src='https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&h=500&q=80'}}
     />
     <div className="p-6 text-center">
-      <h3 className="text-xl font-bold text-gray-800 mb-2">Excursions </h3>
+      <h3 className="text-xl font-bold !text-red-800 mb-2">Excursions </h3>
       <p className="text-gray-500 mb-2 text-sm">Circuits touristiques et transferts aéroport.</p>
-      <p className="text-[#9caf88] font-bold text-sm">À partir de 20 000 FCFA</p>
+     <p className="text-blue-900 font-bold text-sm">À partir de 10 000 FCFA</p>
     </div>
   </div>
 
@@ -122,9 +121,9 @@ export default function Home() {
       onError={(e)=>{e.target.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&h=500&q=80'}}
     />
     <div className="p-6 text-center">
-      <h3 className="text-xl font-bold text-gray-800 mb-2">Location de Véhicules</h3>
+      <h3 className="text-xl font-bold !text-red-800 mb-2">Location de Véhicules</h3>
       <p className="text-gray-500 mb-2 text-sm"> Mercedes-Bens,Toyata,Szuki avec ou sans chauffeur.</p>
-      <p className="text-[#9caf88] font-bold text-sm">À partir de 20 000 FCFA/jour</p>
+    <p className="text-blue-900 font-bold text-sm">À partir de 20 000 FCFA</p>
     </div>
   </div>
    </div>
@@ -137,7 +136,7 @@ export default function Home() {
         <div className="w-full px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Notre Histoire</h2>
+              <h2 className="text-4xl font-bold !text-red-800 mb-6">Notre Histoire</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Depuis 2016, Karel Travels Excursions accompagne voyageurs d'affaires et touristes dans l'organisation de leurs déplacements au Burkina Faso et à l'international.
               </p>
@@ -147,21 +146,21 @@ export default function Home() {
               
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
-                  <div className="text-4xl font-bold text-[#9caf88] mb-2">500+</div>
-                  <div className="text-gray-600">Clients satisfaits</div>
+                <div className="text-4xl font-bold text-green-600 mb-2">500+</div>
+                  <div className="text-blue-600">Clients satisfaits</div>
                 </div>
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
-                  <div className="text-4xl font-bold text-[#9caf88] mb-2">10</div>
-                  <div className="text-gray-600">Années d'expérience</div>
+                 <div className="text-4xl font-bold text-green-600 mb-2">10</div>
+                  <div className="text-blue-600">Années d'expérience</div>
                 </div>
               </div>
 
               <Link 
-                to="/contact" 
-                className="inline-block bg-[#9caf88] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#8a9978] transition shadow-lg hover:shadow-xl"
-              >
-                Rencontrer l'équipe
-              </Link>
+                  to="/contact" 
+                     className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl"
+          >
+                  Rencontrer l'équipe
+           </Link>
             </div>
 
             <div className="relative">
@@ -183,23 +182,26 @@ export default function Home() {
       </section>
 
       {/* ========== CTA ========== */}
-      <section className="py-20 bg-[#2c5e3a] text-white text-center relative overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-green-400/20 rounded-full blur-2xl animate-float-delayed"></div>
-        
-        <div className="w-full px-8 relative z-10">
-          <h2 className="text-4xl font-bold mb-6">Prêt à préparer votre voyage ?</h2>
-          <p className="text-xl mb-8 text-green-100">
-            Laissez-nous organiser chaque détail. Réservez en ligne ou contactez-nous pour un devis personnalisé.
-          </p>
-          <Link 
-            to="/reservation" 
-            className="inline-block bg-white text-[#2c5e3a] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl hover:scale-105"
-          >
-            Prendre rendez-vous
-          </Link>
-        </div>
-      </section>
+      <section className="py-20 bg-blue-900 text-white text-center relative overflow-hidden">
+  <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
+  {/* J'ai changé le vert en bleu pour l'effet de lumière */}
+  <div className="absolute bottom-10 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-2xl animate-float-delayed"></div>
+  
+  <div className="w-full px-8 relative z-10">
+    <h2 className="text-4xl font-bold mb-6">Prêt à préparer votre voyage ?</h2>
+    {/* Texte du paragraphe en bleu très clair */}
+    <p className="text-xl mb-8 text-blue-100">
+      Laissez-nous organiser chaque détail. Réservez en ligne ou contactez-nous pour un devis personnalisé.
+    </p>
+    <Link 
+      to="/reservation" 
+      /* Le texte du bouton est maintenant bleu foncé pour contraster avec le fond blanc */
+      className="inline-block bg-white text-blue-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl hover:scale-105"
+    >
+      Prendre rendez-vous
+    </Link>
+  </div>
+</section>
 
     </div>
   );
