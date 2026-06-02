@@ -92,7 +92,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">Administrateur</h1>
+          <h1 className="text-2xl font-bold !text-red-800">Administrateur</h1>
           <div className="flex items-center gap-4">
             
             {/*<span className="text-sm text-gray-600"> {user?.name} ({user?.role})</span>*/}

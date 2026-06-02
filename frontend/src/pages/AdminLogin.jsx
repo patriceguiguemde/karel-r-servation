@@ -38,9 +38,9 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-           Espace Administrateur
-        </h2>
+        <h2 className="text-2xl font-bold !text-blue-900 mb-6 text-center">
+  Espace Administrateur
+</h2>
         
         {error && (
           <p className="text-red-600 bg-red-50 p-3 rounded mb-4 text-sm border border-red-200">

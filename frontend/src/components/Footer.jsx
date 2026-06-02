@@ -7,7 +7,7 @@ export default function Footer() {
         
        {/*  Marque & Description */}
 <div>
-  <h2 className="text-2xl font-bold text-white mb-4" style={{ color: '#ffffff' }}>
+  <h2 className="text-2xl font-bold text-white mb-4" style={{ color: 'blue' }}>
      Karel Travels Excursions 
   </h2>
   <p className="text-sm leading-relaxed mb-6" style={{ color: '#9ca3af' }}>
@@ -27,7 +27,7 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <h3 className="text-white font-bold text-lg mb-4">Services</h3>
+          <h3 className="text-blue-600 font-bold text-lg mb-4">Services</h3>
           <ul className="space-y-2 text-sm">
             {['Billets d\'avion', 'Hôtellerie', 'Excursions', 'Location véhicules'].map((item) => (
               <li key={item}>
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/*  Liens utiles */}
         <div>
-          <h3 className="text-white font-bold text-lg mb-4">Liens utiles</h3>
+          <h3 className="text-blue-600 font-bold text-lg mb-4">Liens utiles</h3>
           <ul className="space-y-2 text-sm">
             {[
               { label: 'À propos', to: '/#apropos' },
@@ -60,7 +60,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
+         <h3 className="text-blue-600 font-bold text-lg mb-4">Contact</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3">
               <span className="text-karel-blue"></span>

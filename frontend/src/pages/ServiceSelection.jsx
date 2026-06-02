@@ -49,7 +49,7 @@ export default function ServiceSelection() {
         </Link>
         
         {/*  Titre */}
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold !text-blue-800 mb-4">
           Nos Services de Réservation
         </h1>
         <p className="text-xl text-gray-600 mb-12">

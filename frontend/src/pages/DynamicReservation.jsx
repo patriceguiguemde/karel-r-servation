@@ -377,16 +377,16 @@ window.open(waLink, '_blank');
 
             <div className="pt-4">
               <button
-                type="submit"
-                disabled={status.loading}
-                className={`w-full font-semibold py-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-[0.99] ${
-                  status.loading 
-                    ? 'bg-gray-400 cursor-not-allowed text-white' 
-                    : 'bg-[#9caf88] hover:bg-[#8a9978] text-white'
-                }`}
-              >
-                {status.loading ? ' Envoi en cours...' : ' Confirmer la réservation'}
-              </button>
+  type="submit"
+  disabled={status.loading}
+  className={`w-full font-semibold py-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-[0.99] ${
+    status.loading 
+      ? 'bg-gray-400 cursor-not-allowed text-white' 
+      : 'bg-blue-600 hover:bg-blue-700 text-white'
+  }`}
+>
+  {status.loading ? ' Envoi en cours...' : ' Confirmer la réservation'}
+</button>
             </div>
           </form>
 
