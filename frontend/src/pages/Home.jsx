@@ -146,11 +146,11 @@ export default function Home() {
               
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
-                <div className="text-4xl font-bold text-green-600 mb-2">500+</div>
+                <div className="text-4xl font-bold text-yellow-600 mb-2">500+</div>
                   <div className="text-blue-600">Clients satisfaits</div>
                 </div>
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
-                 <div className="text-4xl font-bold text-green-600 mb-2">10</div>
+                 <div className="text-4xl font-bold text-yellow-600 mb-2">10</div>
                   <div className="text-blue-600">Années d'expérience</div>
                 </div>
               </div>

@@ -23,29 +23,29 @@ function Navbar() {
             className="h-20 w-auto sm:h-22 object-contain"
           />
           {/* Titre toujours en vert */}
-           <h1 className="text-base sm:text-lg md:text-xl font-bold !text-blue-900 italic whitespace-nowrap">
+           <h1 className="text-base sm:text-lg md:text-xl font-bold !text-red-900 italic whitespace-nowrap">
             KAREL TRAVELS EXCURSIONS
           </h1>
         </div>
 
         {/* MENU à droite */}
         <div className="flex items-center gap-2">
-          <a href="#accueil" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white">
-            Accueil
+          <a href="#accueil" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white font-bold">
+            ACCUEIL
           </a>
-          <a href="#services" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white">
-            Nos Services
+          <a href="#services" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white font-bold">
+            NOS SERVICES
           </a>
-          <a href="#apropos" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white">
-            À propos
+          <a href="#apropos" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white font-bold">
+            À PROPOS
           </a>
           
           {/* Boutons d'action passés en vert comme demandé */}
-          <Link to="/reservation" className="px-3 py-1.5 text-sm !bg-blue-600 italic hover:!bg-blue-700 text-white font-medium rounded-lg transition-colors">
-  Réservation
+          <Link to="/reservation" className="px-3 py-1.5 text-sm !bg-blue-600 italic hover:!bg-blue-700 text-white font-bold font-medium rounded-lg transition-colors">
+  RESERVATION
 </Link>
-          <Link to="/contact" className="px-3 py-1.5 text-sm !bg-blue-600 italic hover:!bg-blue-700 text-white font-medium rounded-lg transition-colors">
-  Contacter
+          <Link to="/contact" className="px-3 py-1.5 text-sm !bg-blue-600 italic hover:!bg-blue-700 text-white font-bold font-medium rounded-lg transition-colors">
+  CONTACT
 </Link>
         </div>
       </div>

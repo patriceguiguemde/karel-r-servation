@@ -59,7 +59,7 @@ Merci de me recontacter rapidement.`;
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-3">Contact</h1>
+          <h1 className="text-5xl font-bold !text-blue-800 mb-3">Contact</h1>
           <p className="text-gray-600 text-xl">Nous sommes là pour répondre à toutes vos questions</p>
         </div>
 

@@ -8,6 +8,8 @@ use App\Models\Reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReservationConfirmed;
 
 class ReservationController extends Controller
 {
@@ -263,5 +265,10 @@ class ReservationController extends Controller
             ], 500);
         }
     }
+
+        /**
+     * Mettre à jour le statut d'une réservation (et envoyer un email si confirmé)
+     */
+    
     
 }
