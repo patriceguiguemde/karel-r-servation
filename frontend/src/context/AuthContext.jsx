@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
       throw new Error(data.message || data.error || 'Échec de la connexion');
     }
     
-    //  Stocker token et user explicitement
+    
     localStorage.setItem('auth_token', data.token);
     setToken(data.token);
     setUser(data.user || data); // Adapter selon structure API

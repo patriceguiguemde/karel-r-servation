@@ -73,7 +73,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Service Providers ⚠️ SECTION CRITIQUE
+    | Service Providers  SECTION CRITIQUE
     |--------------------------------------------------------------------------
     */
     'providers' => Illuminate\Support\ServiceProvider::defaultProviders()->merge([
@@ -94,7 +94,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Class Aliases ⚠️ SECTION CRITIQUE
+    | Class Aliases  SECTION CRITIQUE
     |--------------------------------------------------------------------------
     */
     'aliases' => Illuminate\Support\Facades\Facade::defaultAliases()->merge([

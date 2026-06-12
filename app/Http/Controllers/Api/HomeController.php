@@ -18,7 +18,7 @@ class HomeController extends Controller
             'success' => true,
             'data' => [
                 'hero' => [
-                    'title' => '✈️ Karel Travels Excursion',
+                    'title' => ' Karel Travels Excursion',
                     'subtitle' => 'Vols • Hôtels • Excursions • Location de véhicules',
                     'description' => 'Votre partenaire de confiance au Burkina Faso pour des voyages sans stress.'
                 ],
@@ -36,9 +36,9 @@ class HomeController extends Controller
                     'title' => 'À Propos de Nous',
                     'content' => 'Fondée en 2020 à Ouagadougou, Karel Travels Excursion est votre agence de voyage de référence au Burkina Faso.',
                     'stats' => [
-                        ['icon' => '🤝', 'label' => 'Confiance', 'value' => '+5000 clients satisfaits'],
-                        ['icon' => '⚡', 'label' => 'Rapidité', 'value' => 'Devis sous 2h'],
-                        ['icon' => '🌍', 'label' => 'Couverture', 'value' => 'Afrique, Europe & Moyen-Orient']
+                        ['icon' => '', 'label' => 'Confiance', 'value' => '+5000 clients satisfaits'],
+                        ['icon' => '', 'label' => 'Rapidité', 'value' => 'Devis sous 2h'],
+                        ['icon' => '', 'label' => 'Couverture', 'value' => 'Afrique, Europe & Moyen-Orient']
                     ]
                 ],
                 'contact' => [

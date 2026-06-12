@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Enregistre les services applicatif.
      */
     public function register(): void
     {
@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * initialiser lices applicatif 
      */
     public function boot(): void
     {

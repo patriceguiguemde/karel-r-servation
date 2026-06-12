@@ -8,7 +8,7 @@ import ServiceSelection from './pages/ServiceSelection';
 import DynamicReservation from './pages/DynamicReservation';
 import AdminDashboard from "./pages/Admin/Dashboard";
 import AdminLogin from './pages/AdminLogin';
-import { useState, useEffect } from 'react'; // ✅ Un seul import React
+import { useState, useEffect } from 'react'; 
 
 function AdminRoute({ children }) {
   const { token, hasRole, loading } = useAuth();

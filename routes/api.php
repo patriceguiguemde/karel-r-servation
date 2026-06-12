@@ -10,7 +10,7 @@ use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\HomeController;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ReservationConfirmed;
+use App\Mail\ReservationConfirmee;
 use Illuminate\Support\Facades\Log; 
 
 // ====================  ROUTES PUBLIQUES ====================
@@ -19,7 +19,7 @@ Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/services/{id}', [ServiceController::class, 'show']);
 Route::post('/reservations', [ReservationController::class, 'store']);
 
-// ====================  AUTHENTIFICATION ====================
+//   AUTHENTIFICATION 
 Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
@@ -49,7 +49,7 @@ Route::post('/login', function (Request $request) {
     ]);
 });
 
-// ====================  ROUTES PROTÉGÉES (auth:sanctum) ====================
+//   ROUTES PROTÉGÉES (auth:sanctum) 
 Route::middleware('auth:sanctum')->group(function () {
     
     Route::get('/user', function (Request $request) {
@@ -61,10 +61,10 @@ Route::middleware('auth:sanctum')->group(function () {
         return response()->json(['success' => true, 'message' => 'Déconnexion réussie']);
     });
     
-    // ====================  ADMIN SEULEMENT ====================
+    //  route pour admin SEULEMENT 
     Route::prefix('admin')->group(function () {
         
-        // Dashboard principal
+        // tableau de bord principal de administrateur
         Route::get('/dashboard', function (Request $request) {
             $user = $request->user();
             if (!$user || !in_array($user->role, ['admin', 'agent'])) {
@@ -112,12 +112,12 @@ Route::middleware('auth:sanctum')->group(function () {
         });
       
 
-        // 📋 Liste simple
+        //  Liste simple
         Route::get('/reservations', function (Request $request) {
             if (!in_array($request->user()->role, ['admin', 'agent'])) {
                 return response()->json(['success' => false, 'message' => 'Accès refusé'], 403);
             }
-            // ✅ Changé : latest() → orderBy('id', 'asc')
+            //  Changé : latest() → orderBy('id', 'asc')
             $reservations = Reservation::orderBy('id', 'asc')->paginate(20);
             return response()->json([
                 'success' => true,
@@ -130,7 +130,7 @@ Route::middleware('auth:sanctum')->group(function () {
             ]);
         });
 
-        // 🔄 Modifier statut
+        // route qui modifie le statut
         Route::patch('/reservations/{id}/status', function (Request $request, $id) {
             if (!in_array($request->user()->role, ['admin', 'agent'])) {
                 return response()->json(['success' => false, 'message' => 'Accès refusé'], 403);
@@ -139,27 +139,32 @@ Route::middleware('auth:sanctum')->group(function () {
                 'status' => 'required|in:en_attente,en_traitement,confirme,paye,annule',
             ]);
             $reservation = Reservation::findOrFail($id);
-             $oldStatus = $reservation->status; // 🌟 NOUVEAU : On garde l'ancien statut en mémoire
+             $oldStatus = $reservation->status; //   NOUVEAU : On garde l'ancien statut en mémoire
             $reservation->update(['status' => $request->status]);
-
-            if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
-                $emailClient = $reservation->email; // L'email est stocké directement dans la réservation
-                
-                if ($emailClient) {
-                    try {
-                        // Envoi du mail
-                        Mail::to($emailClient)->send(new ReservationConfirmed($reservation));
-                    } catch (\Exception $e) {
-                        // Si le mail échoue, on l'écrit dans les logs mais on ne bloque pas la réponse à React
-                        Log::error('Erreur envoi mail confirmation: ' . $e->getMessage());
-                    }
-                }
-            }
+      //condition pour envoie de mail
+if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
+    $emailClient = $reservation->email;
+    
+    Log::info('=== TENTATIVE ENVOI MAIL ===');
+    Log::info('Email client: ' . $emailClient);
+    Log::info('Reservation ID: ' . $reservation->id);
+    
+    if ($emailClient) {
+        try {
+            Mail::to($emailClient)->send(new ReservationConfirmee($reservation));
+            Log::info('=== MAIL ENVOYÉ AVEC SUCCÈS ===');
+        } catch (\Exception $e) {
+            Log::error('=== ERREUR MAIL: ' . $e->getMessage());
+        }
+    } else {
+        Log::warning('=== EMAIL CLIENT VIDE ===');
+    }
+}
             return response()->json(['success' => true, 'data' => $reservation->fresh()]);
         });
 
         
-        // 🗑 Supprimer réservation
+        // route de suppression de réservation
         Route::delete('/reservations/{id}', [ReservationController::class, 'deleteReservation']);
         //Route::delete('/reservations/{id}', function (Request $request, $id) {
     //if (!in_array($request->user()->role, ['admin', 'agent'])) {

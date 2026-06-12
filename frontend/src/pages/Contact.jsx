@@ -32,10 +32,10 @@ ${formData.message}
 ---
 Merci de me recontacter rapidement.`;
 
-    //  Numéro WhatsApp (votre numéro sans le +)
-    const whatsappNumber = '22675230293';
+    //  Numéro WhatsApp )
+    const whatsappNumber = '22674199797';
     
-    //  Créer l'URL WhatsApp
+    //  Creaction de l'URL WhatsApp
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     
     //  Ouvrir WhatsApp
@@ -74,7 +74,7 @@ Merci de me recontacter rapidement.`;
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 text-lg mb-1">Adresse</h3>
-                <p className="text-gray-600">Secteur 24</p>
+                <p className="text-gray-600">Secteur 22</p>
                 <p className="text-gray-600">Bobo-Dioulasso, Burkina Faso</p>
               </div>
             </div>
@@ -87,7 +87,7 @@ Merci de me recontacter rapidement.`;
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 text-lg mb-1">Téléphone</h3>
-                <p className="text-gray-600">+226 75 23 02 93</p>
+                <p className="text-gray-600">+226 74 19 97 97/ 70 22 06 63</p>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ Merci de me recontacter rapidement.`;
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 text-lg mb-1">Email</h3>
-                <p className="text-gray-600">patrice1@gmail.com</p>
+                <p className="text-gray-600">karelvoyages@gmail.com</p>
               </div>
             </div>
 
@@ -114,7 +114,7 @@ Merci de me recontacter rapidement.`;
               <div>
                 <h3 className="font-bold text-gray-800 text-lg mb-1">WhatsApp</h3>
                 <a 
-                  href="https://wa.me/22675230293" 
+                  href="https://wa.me/22674199797" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-[#9caf88] transition font-medium"
@@ -139,11 +139,11 @@ Merci de me recontacter rapidement.`;
             <div className="pt-6">
               <h3 className="font-bold text-gray-800 text-lg mb-4">Suivez-nous</h3>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 bg-[#9caf88]/20 hover:bg-[#9caf88]/30 rounded-full flex items-center justify-center transition">
-                  <span className="text-[#9caf88] font-bold">f</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-[#9caf88]/20 hover:bg-[#9caf88]/30 rounded-full flex items-center justify-center transition">
-                  <span className="text-[#9caf88] font-bold">w</span>
+                <a href="https://www.facebook.com/share/1JP1pPqzwy/?mibxtid=wwXlfr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#9caf88]/20 hover:bg-[#9caf88]/30 rounded-full flex items-center justify-center transition">
+                <span className="text-[#9caf88] font-bold">f</span>
+                 </a>
+               <a href="#" className="w-10 h-10 bg-[#9caf88]/20 hover:bg-[#9caf88]/30 rounded-full flex items-center justify-center transition">
+                  <span className="text-[#9caf88] font-bold">TT</span>
                 </a>
                 </div>
             </div>
@@ -152,9 +152,8 @@ Merci de me recontacter rapidement.`;
           {/*  FORMULAIRE DE CONTACT */}
           <div className="bg-[#F9F7F4] rounded-2xl p-8 md:p-10">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Envoyez-nous un message</h2>
-            <p className="text-gray-600 mb-6 text-sm">
-               Le message sera envoyé directement sur WhatsApp
-            </p>
+           <h3> Le message sera envoyé directement sur WhatsApp </h3>
+            
             
             <form onSubmit={handleSubmit} className="space-y-5">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -165,7 +164,7 @@ Merci de me recontacter rapidement.`;
       required 
       value={formData.nom} 
       onChange={handleChange} 
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition bg-white" 
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white"
     />
     <input 
       type="text" 
@@ -174,7 +173,7 @@ Merci de me recontacter rapidement.`;
       required 
       value={formData.prenom} 
       onChange={handleChange} 
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition bg-white" 
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue outline-none transition bg-white" 
     />
   </div>
   
@@ -185,7 +184,7 @@ Merci de me recontacter rapidement.`;
     required 
     value={formData.email} 
     onChange={handleChange} 
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition bg-white" 
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue outline-none transition bg-white" 
   />
   
   <input 
@@ -195,7 +194,7 @@ Merci de me recontacter rapidement.`;
     required 
     value={formData.sujet} 
     onChange={handleChange} 
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition bg-white" 
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue outline-none transition bg-white" 
   />
   
   {/* Champ message maintenant optionnel */}
@@ -205,7 +204,7 @@ Merci de me recontacter rapidement.`;
     rows={6} 
     value={formData.message} 
     onChange={handleChange} 
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition resize-none bg-white"
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue outline-none transition resize-none bg-white"
   ></textarea>
   
   <button 

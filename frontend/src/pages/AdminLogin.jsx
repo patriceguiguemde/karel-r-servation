@@ -9,7 +9,7 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   
-  const { login, logout } = useAuth(); //  Retiré hasRole, ajouté logout
+  const { login, logout } = useAuth(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -26,7 +26,7 @@ export default function AdminLogin() {
         throw new Error('Accès refusé : Espace réservé aux administrateurs.');
       }
 
-      navigate('/admin', { replace: true }); //  Route correcte
+      navigate('/admin', { replace: true }); 
 
     } catch (err) {
       setError(err.message);
@@ -37,7 +37,7 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-8">
+      <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-8 border-2 border-red-500">
         <h2 className="text-2xl font-bold !text-blue-900 mb-6 text-center">
   Espace Administrateur
 </h2>
@@ -55,7 +55,7 @@ export default function AdminLogin() {
               type="email" 
               value={email} 
               onChange={e => setEmail(e.target.value)} 
-              className="w-full mt-1 px-4 py-2 border rounded focus:ring-2 focus:ring-[#9caf88] focus:outline-none disabled:opacity-50" 
+              className="w-full h-11 px-3 bg-gray-50 border-2 border-[#9caf88] rounded-lg text-sm text-gray-800 placeholder-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none disabled:opacity-50 transition"
               required 
               disabled={loading}
             />
@@ -66,7 +66,7 @@ export default function AdminLogin() {
               type="password" 
               value={password} 
               onChange={e => setPassword(e.target.value)} 
-              className="w-full mt-1 px-4 py-2 border rounded focus:ring-2 focus:ring-[#9caf88] focus:outline-none disabled:opacity-50" 
+             className="w-full h-11 px-3 bg-gray-50 border-2 border-[#9caf88] rounded-lg text-sm text-gray-800 placeholder-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none disabled:opacity-50 transition"
               required 
               disabled={loading}
             />
@@ -75,7 +75,7 @@ export default function AdminLogin() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-[#2c5e3a] text-white py-3 rounded font-semibold hover:bg-[#1e4228] disabled:opacity-50 disabled:cursor-not-allowed transition"
+           className="w-full h-11 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2 mt-2"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
@@ -90,7 +90,7 @@ export default function AdminLogin() {
       </div>
     </div>
   );
-  //  Ajouter en haut du composant
+  
 useEffect(() => {
   if (user) {
     navigate('/admin', { replace: true });

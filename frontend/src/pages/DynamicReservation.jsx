@@ -17,7 +17,7 @@ const serviceConfig = {
       { name: 'arrival_city', label: 'Ville d\'arrivée', type: 'text', required: true, col: 1, placeholder: 'Ouaga' },
       { name: 'departure_date', label: 'Date aller', type: 'date', required: true, col: 1 },
       { name: 'return_date', label: 'Date retour', type: 'date', required: false, col: 1 },
-      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande ici' }
+      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande...' }
     ]
   },
   
@@ -34,7 +34,7 @@ const serviceConfig = {
       { name: 'rooms', label: 'Nombre de chambres', type: 'number', required: true, col: 1, min: 1, default: 1 },
       { name: 'adults', label: 'Adultes', type: 'number', required: true, col: 1, min: 1, default: 2 },
       { name: 'children', label: 'Enfants', type: 'number', required: false, col: 1, min: 0, default: 0 },
-      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande ici ' }
+      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande... ' }
     ]
   },
   
@@ -45,16 +45,11 @@ const serviceConfig = {
       { name: 'prenom', label: 'Prenom', type: 'text', required: true, col: 1 },
       { name: 'email', label: 'Email', type: 'email', required: true, col: 1 },
       { name: 'telephone', label: 'Téléphone', type: 'tel', required: true, col: 1 },
-      { name: 'pickup_location', label: 'Lieu de prise en charge', type: 'text', required: true, col: 1, placeholder: 'Aéroport de Bobo' },
-      { name: 'dropoff_location', label: 'Lieu de retour', type: 'text', required: true, col: 1, placeholder: ' Aéroport de Ouaga' },
+      { name: 'pickup_location', label: 'Lieu de prise en charge', type: 'text', required: true, col: 1, placeholder: ' Bobo' },
+      { name: 'dropoff_location', label: 'Lieu de retour', type: 'text', required: true, col: 1, placeholder: '  Ouaga' },
       { name: 'pickup_date', label: 'Date et heure de début', type: 'datetime-local', required: true, col: 1 },
       { name: 'dropoff_date', label: 'Date et heure de fin', type: 'datetime-local', required: true, col: 1 },
-      { name: 'vehicle_type', label: 'Marque du véhicule', type: 'select', required: true, col: 1, options: [
-      { value: 'mercedes', label: 'Mercedes-Benz' },
-      { value: 'toyota', label: 'Toyota' },
-      { value: 'suzuki', label: 'Suzuki' },
-      { value: 'lexus', label: 'Lexus' }
-      ]},
+      { name: 'vehicle_type', label: 'Marque du véhicule', type: 'text', required: false, col: 1 },
       { name: 'transmission', label: 'Transmission', type: 'select', required: true, col: 1, options: [
         { value: 'manual', label: 'Manuelle' },
         { value: 'automatic', label: 'Automatique' }
@@ -67,7 +62,7 @@ const serviceConfig = {
         { value: 'basic', label: 'Basique' },
         { value: 'full', label: 'Tous risques' }
       ]},
-      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Siège bébé, GPS, chaîne neige...' }
+      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saissisez votre demande...' }
     ]
   },
   
@@ -102,7 +97,7 @@ const serviceConfig = {
         { value: 'moderate', label: 'Modéré' },
         { value: 'hard', label: 'Difficile' }
       ]},
-      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande' }
+      { name: 'message', label: 'Demandes particulières', type: 'textarea', required: false, col: 2, placeholder: 'Saisissiez votre demande...' }
     ]
   }
 };
@@ -286,10 +281,10 @@ console.log(' Payload envoyé:', payload);
      //  REDIRECTION WHATSAPP - Version simplifiée
 // On passe cleanPayload (ou formData) directement + le type de service
 const waData = { 
-  ...cleanPayload,  // ou formData si vous n'avez pas ajouté cleanPayload
+  ...cleanPayload,  
   service_type: type 
 };
-const waLink = buildWhatsAppUrl(waData, '22675230293');
+const waLink = buildWhatsAppUrl(waData, '22674199797');
 setWaUrl(waLink);
 window.open(waLink, '_blank');
 //  FIN REDIRECTION WHATSAPP 
@@ -318,16 +313,16 @@ window.open(waLink, '_blank');
   return (
     <div className="min-h-screen bg-[#F5F2EB] py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <Link to="/reservation" className="inline-flex items-center gap-2 text-gray-600 hover:text-[#2c5e3a] font-medium mb-8 transition">
+        <Link to="/reservation" className="inline-flex items-center gap-2 text-blue-600 hover:text-[#2c5e3a] font-medium mb-8 transition">
            Retour aux services
         </Link>
         
         <div className="text-center mb-8">
           <span className="text-6xl block mb-4">{config.icon}</span>
-          <h1 className="text-4xl font-bold text-gray-800">{config.title}</h1>
+          <h1 className="text-4xl font-bold !text-red-800">{config.title}</h1>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-8 md:p-10">
+        <div className="bg-white rounded-2xl border-2 border-red-700 p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {config.fields.map((field) => (
@@ -344,7 +339,7 @@ window.open(waLink, '_blank');
                       value={formData[field.name] || ''}
                       onChange={handleChange}
                       placeholder={field.placeholder}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition resize-none"
+                      className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:border-blue-500 focus:ring-0 outline-none transition"
                     />
                   ) : field.type === 'select' ? (
                     <select
@@ -352,7 +347,7 @@ window.open(waLink, '_blank');
                       required={field.required}
                       value={formData[field.name] || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white"
                     >
                       <option value="">Sélectionner...</option>
                       {field.options?.map(opt => (
@@ -368,7 +363,7 @@ window.open(waLink, '_blank');
                       value={formData[field.name] || ''}
                       onChange={handleChange}
                       placeholder={field.placeholder}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9caf88] focus:border-transparent outline-none transition"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                     />
                   )}
                 </div>
@@ -390,7 +385,7 @@ window.open(waLink, '_blank');
             </div>
           </form>
 
-          {/*  MESSAGE DE SUCCÈS + BOUTON WHATSAPP PRO */}
+          {/*  MESSAGE DE SUCCÈS  */}
           {status.submitted && (
             <div className="mt-6 bg-green-50 border border-green-200 rounded-xl p-5 text-center">
               <p className="text-green-800 font-medium mb-3">

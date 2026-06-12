@@ -8,8 +8,8 @@ use App\Models\Reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use App\Mail\ReservationConfirmee;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ReservationConfirmed;
 
 class ReservationController extends Controller
 {
@@ -144,9 +144,9 @@ class ReservationController extends Controller
                 'dropoff_location' => 'required|string|max:150',
                 'pickup_date' => 'required|date|after_or_equal:now',
                 'dropoff_date' => 'required|date|after:pickup_date',
-                'vehicle_type' => 'required|in:economy,mercedes-benz,toyota,suzuki,lexus',
-                'transmission' => 'required|in:manual,automatic',
-            ],
+                'vehicle_type' => 'nullable|string|max:100',
+                 'transmission' => 'required|in:manual,automatic',
+],
             'excursion' => [
                 'destination' => 'required|string|max:100',
                 'excursion_type' => 'required|string|max:100',
@@ -266,9 +266,20 @@ class ReservationController extends Controller
         }
     }
 
-        /**
-     * Mettre à jour le statut d'une réservation (et envoyer un email si confirmé)
-     */
+     public function updateStatus(Request $request, $id)
+     {
+    $reservation = Reservation::findOrFail($id);
+    $oldStatus = $reservation->status;
+
+    $reservation->update(['status' => $request->status]);
+
+    // Envoyer le mail uniquement quand on passe à "confirme"
+    if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
+        Mail::to($reservation->email)->send(new ReservationConfirmee($reservation));
+    }
+
+    return response()->json(['message' => 'Statut mis à jour']);
+}
     
     
 }

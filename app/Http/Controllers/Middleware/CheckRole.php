@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Middleware;  // ← IMPORTANT : Ce namespace exact
+namespace App\Http\Middleware;  
 
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckRole  // ← IMPORTANT : Ce nom de classe exact
+class CheckRole  
 {
     public function handle(Request $request, Closure $next, ...$roles): Response
     {

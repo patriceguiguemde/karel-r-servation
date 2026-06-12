@@ -19,17 +19,17 @@ export default function Home() {
   <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-blue-400/10 rounded-full blur-lg animate-float"></div>
 
   <div className="relative z-10 text-center text-white px-4 w-full mx-auto">
-    {/* TITRE - Blanc forcé */}
+    
     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-2xl" style={{ color: 'white' }}>
       Karel Travels Excursions
     </h1>
     
-    {/* Sous-titre 1 - Blanc */}
+    
     <p className="text-2xl md:text-3xl mb-6 drop-shadow-lg font-light" style={{ color: 'white' }}>
       Réservez vos voyages en toute simplicité et profitez d'un service de qualité.
     </p>
     
-    {/* Sous-titre 2 - Blanc plus clair */}
+    
     <p className="text-xl mb-10" style={{ color: '#ffffff' }}>
       Dans nos offres d'excursion et voyages
     </p>
@@ -77,8 +77,8 @@ export default function Home() {
     />
     <div className="p-6 text-center">
      <h3 className="text-xl font-bold !text-red-700 mb-2">Billets d'Avion</h3>
-      <p className="text-gray-500 mb-2 text-sm">Réservation de vols toutes destinations aux meilleurs tarifs.</p>
-     <p className="text-blue-900 font-bold text-sm">À partir de 60 000 FCFA</p>
+      <p className="text-blue-500 mb-2 text-sm">Réservez vos billets d'avion au meilleur prix, vers toutes les destinations.</p>
+   
     </div>
   </div>
 
@@ -92,8 +92,8 @@ export default function Home() {
     />
     <div className="p-6 text-center">
       <h3 className="text-xl font-bold !text-red-800 mb-2">Hôtellerie & Séjours</h3>
-      <p className="text-gray-500 mb-2 text-sm">Hôtels, résidences et appartements meublés. Tarifs groupes.</p>
-     <p className="text-blue-900 font-bold text-sm">À partir de 30 000 FCFA</p>
+      <p className="text-blue-500 mb-2 text-sm">Réservez votre chambre d'hotel idéal: confort garanti, tarifs avantageux pour individuels et groupes.</p>
+    
     </div>
   </div>
 
@@ -107,8 +107,8 @@ export default function Home() {
     />
     <div className="p-6 text-center">
       <h3 className="text-xl font-bold !text-red-800 mb-2">Excursions </h3>
-      <p className="text-gray-500 mb-2 text-sm">Circuits touristiques et transferts aéroport.</p>
-     <p className="text-blue-900 font-bold text-sm">À partir de 10 000 FCFA</p>
+      <p className="text-blue-500 mb-2 text-sm">Décrouvrez nos circuits touristiques inoubliables et profitez de transferts aéroport simples et confortables.</p>
+  
     </div>
   </div>
 
@@ -122,8 +122,8 @@ export default function Home() {
     />
     <div className="p-6 text-center">
       <h3 className="text-xl font-bold !text-red-800 mb-2">Location de Véhicules</h3>
-      <p className="text-gray-500 mb-2 text-sm"> Mercedes-Bens,Toyata,Szuki avec ou sans chauffeur.</p>
-    <p className="text-blue-900 font-bold text-sm">À partir de 20 000 FCFA</p>
+      <p className="text-blue-500 mb-2 text-sm">Des véhicules récents et confortables pour tous vos déplacements, avec ou sans chauffeur.</p>
+  
     </div>
   </div>
    </div>
@@ -150,7 +150,7 @@ export default function Home() {
                   <div className="text-blue-600">Clients satisfaits</div>
                 </div>
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
-                 <div className="text-4xl font-bold text-yellow-600 mb-2">10</div>
+                 <div className="text-4xl font-bold text-yellow-600 mb-2">13</div>
                   <div className="text-blue-600">Années d'expérience</div>
                 </div>
               </div>
@@ -184,12 +184,12 @@ export default function Home() {
       {/* ========== CTA ========== */}
       <section className="py-20 bg-blue-900 text-white text-center relative overflow-hidden">
   <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
-  {/* J'ai changé le vert en bleu pour l'effet de lumière */}
+  
   <div className="absolute bottom-10 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-2xl animate-float-delayed"></div>
   
   <div className="w-full px-8 relative z-10">
-    <h2 className="text-4xl font-bold mb-6">Prêt à préparer votre voyage ?</h2>
-    {/* Texte du paragraphe en bleu très clair */}
+   <h2 className="text-4xl font-bold mb-6 !text-white">Prêt à préparer votre voyage ?</h2>
+    
     <p className="text-xl mb-8 text-blue-100">
       Laissez-nous organiser chaque détail. Réservez en ligne ou contactez-nous pour un devis personnalisé.
     </p>

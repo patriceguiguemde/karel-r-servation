@@ -15,20 +15,20 @@ function Navbar() {
     <nav className="bg-white px-4 py-2 sticky top-0 z-50 border-b border-gray-200">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         
-        {/* LOGO à gauche - Agrandi */}
+        {/* LOGO à gauche  */}
         <div className="flex items-center gap-3">
           <img 
             src={logo} 
             alt="Logo Karel Travels" 
             className="h-20 w-auto sm:h-22 object-contain"
           />
-          {/* Titre toujours en vert */}
+          {/* La couleur du Titre */}
            <h1 className="text-base sm:text-lg md:text-xl font-bold !text-red-900 italic whitespace-nowrap">
             KAREL TRAVELS EXCURSIONS
           </h1>
         </div>
 
-        {/* MENU à droite */}
+        {/* Le MENU */}
         <div className="flex items-center gap-2">
           <a href="#accueil" className="px-3 py-1.5 text-sm bg-blue-600 italic rounded-lg text-white font-bold">
             ACCUEIL
@@ -40,7 +40,7 @@ function Navbar() {
             À PROPOS
           </a>
           
-          {/* Boutons d'action passés en vert comme demandé */}
+          
           <Link to="/reservation" className="px-3 py-1.5 text-sm !bg-blue-600 italic hover:!bg-blue-700 text-white font-bold font-medium rounded-lg transition-colors">
   RESERVATION
 </Link>
