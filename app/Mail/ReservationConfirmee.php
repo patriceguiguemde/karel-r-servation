@@ -27,7 +27,7 @@ class ReservationConfirmee extends Mailable
     }
 
     public function attachments(): array
-{
+   {
     $pdf = Pdf::loadView('pdf.ticket', ['reservation' => $this->reservation])
         ->setOptions([
             'defaultFont' => 'dejavu sans',
@@ -41,5 +41,5 @@ class ReservationConfirmee extends Mailable
             'ticket_' . $this->reservation->id . '.pdf'
         )->withMime('application/pdf'),
     ];
-}
+    }
 }

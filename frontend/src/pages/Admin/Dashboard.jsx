@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
+
 export default function AdminDashboard() {
   const { token, hasRole, logout, user } = useAuth();
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ export default function AdminDashboard() {
   const [filters, setFilters] = useState({ service_type: '', status: '', search: '' });
 
   useEffect(() => {
-    if (!token) navigate('/login');
-    else if (!hasRole('admin', 'agent')) navigate('/');
+  if (!token) navigate('/admin-login');
+  else if (!hasRole('admin', 'agent')) navigate('/');
   }, [token, hasRole, navigate]);
 
   useEffect(() => {
@@ -96,9 +97,16 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-4">
             
             {/*<span className="text-sm text-gray-600"> {user?.name} ({user?.role})</span>*/}
-            <button onClick={logout} className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg">
+            
+          <button
+             onClick={() => {
+             logout();
+             navigate('/admin-login', { replace: true });
+             }}
+             className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg"
+           >
               Déconnexion
-            </button>
+          </button>
           </div>
         </div>
       </header>
@@ -106,11 +114,11 @@ export default function AdminDashboard() {
       <main className="max-w-7xl mx-auto px-4 py-8">
         
         {/* Cartes stats - MODIFIÉ : ajout de onClick et active */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 mx-auto max-w-6xl">
-          <StatCard label="Total" value={stats.total || 0} color="bg-[#8a9e6e] text-black border border-[#7a8e5e]" onClick={() => handleStatCardClick('')} active={filters.status === ''} />
-          <StatCard label="En attente" value={stats.pending || 0} color="bg-[#8a9e6e] text-black border border-[#7a8e5e]" onClick={() => handleStatCardClick('en_attente')} active={filters.status === 'en_attente'} />
-          <StatCard label="Confirmées" value={stats.confirmed || 0} color="bg-[#8a9e6e] text-black border border-[#7a8e5e]" onClick={() => handleStatCardClick('confirme')} active={filters.status === 'confirme'} />
-          <StatCard label="Annulées" value={stats.cancelled || 0} color="bg-[#8a9e6e] text-black border border-[#7a8e5e]" onClick={() => handleStatCardClick('annule')} active={filters.status === 'annule'} />
+       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 mx-auto max-w-6xl">
+          <StatCard label="Total" value={stats.total || 0} color="bg-gradient-to-br from-blue-500 to-blue-700 text-white border border-red-400" onClick={() => handleStatCardClick('')} active={filters.status === ''} />
+          <StatCard label="En attente" value={stats.pending || 0} color="bg-gradient-to-br from-red-500 to-red-700 text-white border border-blue-400" onClick={() => handleStatCardClick('en_attente')} active={filters.status === 'en_attente'} />
+          <StatCard label="Confirmées" value={stats.confirmed || 0} color="bg-gradient-to-br from-blue-500 to-blue-700 text-white border border-blue-400" onClick={() => handleStatCardClick('confirme')} active={filters.status === 'confirme'} />
+          <StatCard label="Annulées" value={stats.cancelled || 0} color="bg-gradient-to-br from-red-500 to-red-700 text-white border border-blue-400" onClick={() => handleStatCardClick('annule')} active={filters.status === 'annule'} />
         </div>
 
         {/* Filtres */}
@@ -203,13 +211,14 @@ function StatCard({ label, value, color, onClick, active = false }) {
     </div>
   );
 }
-
+   // fonction pour les différences services
 function ServiceBadge({ type }) {
   const icons = { vol: '', hotel: '', vehicule: '', excursion: '' };
   const labels = { vol: 'Vol', hotel: 'Hôtel', vehicule: 'Véhicule', excursion: 'Excursion' };
   return <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 rounded text-xs">{icons[type]} {labels[type]}</span>;
 }
 
+// fonction pour les statut des reservations
 function getStatusColor(status) {
   const c = { 
     'en_attente': 'bg-yellow-100 text-yellow-800',

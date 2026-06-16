@@ -11,7 +11,10 @@ use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\HomeController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservationConfirmee;
-use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Auth\PasswordResetController;
+
+
 
 // ====================  ROUTES PUBLIQUES ====================
 Route::get('/home', [HomeController::class, 'index']);
@@ -47,22 +50,30 @@ Route::post('/login', function (Request $request) {
         ],
         'token' => $token,
     ]);
-});
+   });
+  
+    
+         // Routes de réinitialisation de mot de passe (publiques)
+         Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink']);
+         Route::post('/reset-password', [PasswordResetController::class, 'reset']);
 
-//   ROUTES PROTÉGÉES (auth:sanctum) 
-Route::middleware('auth:sanctum')->group(function () {
+     
+           //   ROUTES PROTÉGÉES (auth:sanctum) 
+             Route::middleware('auth:sanctum')->group(function () {
     
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
+             Route::get('/user', function (Request $request) {
+                 return $request->user();
+              });
+
+             
     
-    Route::post('/logout', function (Request $request) {
+           Route::post('/logout', function (Request $request) {
         $request->user()->currentAccessToken()->delete();
         return response()->json(['success' => true, 'message' => 'Déconnexion réussie']);
     });
     
-    //  route pour admin SEULEMENT 
-    Route::prefix('admin')->group(function () {
+         //  route pour admin SEULEMENT 
+           Route::prefix('admin')->group(function () {
         
         // tableau de bord principal de administrateur
         Route::get('/dashboard', function (Request $request) {
@@ -110,7 +121,8 @@ Route::middleware('auth:sanctum')->group(function () {
                 'reservations' => $reservations
             ]);
         });
-      
+
+    
 
         //  Liste simple
         Route::get('/reservations', function (Request $request) {
@@ -142,23 +154,23 @@ Route::middleware('auth:sanctum')->group(function () {
              $oldStatus = $reservation->status; //   NOUVEAU : On garde l'ancien statut en mémoire
             $reservation->update(['status' => $request->status]);
       //condition pour envoie de mail
-if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
-    $emailClient = $reservation->email;
+         if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
+          $emailClient = $reservation->email;
     
-    Log::info('=== TENTATIVE ENVOI MAIL ===');
-    Log::info('Email client: ' . $emailClient);
-    Log::info('Reservation ID: ' . $reservation->id);
+         Log::info('=== TENTATIVE ENVOI MAIL ===');
+         Log::info('Email client: ' . $emailClient);
+         Log::info('Reservation ID: ' . $reservation->id);
     
-    if ($emailClient) {
+           if ($emailClient) {
         try {
             Mail::to($emailClient)->send(new ReservationConfirmee($reservation));
             Log::info('=== MAIL ENVOYÉ AVEC SUCCÈS ===');
         } catch (\Exception $e) {
             Log::error('=== ERREUR MAIL: ' . $e->getMessage());
         }
-    } else {
+      } else {
         Log::warning('=== EMAIL CLIENT VIDE ===');
-    }
+        }
 }
             return response()->json(['success' => true, 'data' => $reservation->fresh()]);
         });
@@ -175,5 +187,6 @@ if ($request->status === 'confirme' && $oldStatus !== 'confirme') {
     //return response()->json(['success' => true, 'message' => 'Réservation supprimée']);
 //});
     });
-    
+        
+      
 });

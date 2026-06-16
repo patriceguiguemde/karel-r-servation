@@ -1,51 +1,47 @@
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from "../context/AuthContext";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-export default function AdminLogin() {
+export default function AdminForgotPassword() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const { login, logout, user } = useAuth();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setMessage('');
     setLoading(true);
 
     try {
-      const data = await login(email, password);
-      const role = data.user?.role;
-
-      if (!['admin', 'agent'].includes(role)) {
-        await logout();
-        throw new Error('Accès refusé : Espace réservé aux administrateurs.');
-      }
-
-      navigate('/admin', { replace: true });
-
+      const res = await axios.post('http://localhost:8000/api/forgot-password', { email });
+      setMessage(res.data.message);
     } catch (err) {
-      setError(err.message);
+      setError(
+        err.response?.data?.message || 'Une erreur est survenue. Veuillez réessayer.'
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    if (user) {
-      navigate('/admin', { replace: true });
-    }
-  }, [user]);
-
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-8 border-2 border-red-500">
         <h2 className="text-2xl font-bold !text-blue-900 mb-6 text-center">
-          Espace Administrateur
+          Mot de passe oublié
         </h2>
+
+        <p className="text-sm text-gray-600 mb-6 text-center">
+          Entrez votre adresse email. Un lien de réinitialisation vous sera envoyé.
+        </p>
+
+        {message && (
+          <p className="text-green-700 bg-green-50 p-3 rounded mb-4 text-sm border border-green-200">
+            {message}
+          </p>
+        )}
 
         {error && (
           <p className="text-red-600 bg-red-50 p-3 rounded mb-4 text-sm border border-red-200">
@@ -65,17 +61,6 @@ export default function AdminLogin() {
               disabled={loading}
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Mot de passe</label>
-            <input
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              className="w-full h-11 px-3 bg-gray-50 border-2 border-[#9caf88] rounded-lg text-sm text-gray-800 placeholder-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none disabled:opacity-50 transition"
-              required
-              disabled={loading}
-            />
-          </div>
 
           <button
             type="submit"
@@ -85,22 +70,16 @@ export default function AdminLogin() {
             {loading ? (
               <span className="flex items-center justify-center gap-2">
                 <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
-                Connexion...
+                Envoi...
               </span>
-            ) : 'Se connecter'}
+            ) : 'Envoyer le lien'}
           </button>
         </form>
 
         <div className="text-center mt-4">
-          
-         {/* <button
-            type="button"
-          onClick={() => navigate('/admin-mot-de-passe-oublie')}
-            className="text-sm text-blue-600 hover:underline"
-          >
-            Mot de passe oublié ?
-          </button>
-          */}
+          <Link to="/admin/login" className="text-sm text-blue-600 hover:underline">
+            Retour à la connexion
+          </Link>
         </div>
       </div>
     </div>

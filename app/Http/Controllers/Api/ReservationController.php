@@ -106,6 +106,11 @@ class ReservationController extends Controller
         $reservation = Reservation::findOrFail($id);
         $reservation->delete();
 
+        // Si la table est vide après suppression, réinitialiser l'auto-increment
+        if (Reservation::count() === 0) {
+            DB::statement('ALTER TABLE reservations AUTO_INCREMENT = 1');
+        }
+
         return response()->json([
             'message' => 'Réservation supprimée avec succès'
         ], 200);
@@ -280,6 +285,7 @@ class ReservationController extends Controller
 
     return response()->json(['message' => 'Statut mis à jour']);
 }
-    
-    
+
+
+  
 }

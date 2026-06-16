@@ -106,7 +106,7 @@ export default function Home() {
       onError={(e)=>{e.target.src='https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&h=500&q=80'}}
     />
     <div className="p-6 text-center">
-      <h3 className="text-xl font-bold !text-red-800 mb-2">Excursions </h3>
+      <h3 className="text-xl font-bold !text-red-800 mb-2">Sites touristique </h3>
       <p className="text-blue-500 mb-2 text-sm">Décrouvrez nos circuits touristiques inoubliables et profitez de transferts aéroport simples et confortables.</p>
   
     </div>

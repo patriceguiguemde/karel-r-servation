@@ -9,6 +9,8 @@ import DynamicReservation from './pages/DynamicReservation';
 import AdminDashboard from "./pages/Admin/Dashboard";
 import AdminLogin from './pages/AdminLogin';
 import { useState, useEffect } from 'react'; 
+import AdminForgotPassword from './pages/admin/AdminForgotPassword';
+import AdminResetPassword from './pages/admin/AdminResetPassword';
 
 function AdminRoute({ children }) {
   const { token, hasRole, loading } = useAuth();
@@ -35,7 +37,7 @@ function AdminRoute({ children }) {
   return children;
 }
 
- /* function Login() {
+/* function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -137,8 +139,11 @@ function App() {
               {/* Connexion */}
              {/*<Route path="/login" element={<Login />} />*/} 
               <Route path="/admin-login" element={<AdminLogin />} />
-
-              {/* Route ADMIN protégée */}
+              
+              <Route path="/admin-mot-de-passe-oublie" element={<AdminForgotPassword />} />
+              <Route path="/admin-reset-password" element={<AdminResetPassword />} />
+              
+             {/* Route ADMIN protégée */}
               <Route path="/admin" element={
                 <AdminRoute>
                   <AdminDashboard />
@@ -154,6 +159,8 @@ function App() {
       </Router>
     </AuthProvider>
   );
+  
 }
+
 
 export default App;

@@ -10,7 +10,7 @@ export default function ServiceSelection() {
       slug: 'vol', 
       title: 'Billets d\'Avion', 
       desc: 'Réservez vos vols aux meilleurs prix, partout dans le monde',
-      gradient: 'from-sky-400 to-blue-600',
+      gradient: 'from-red-400 to-red-600',
       icon: <img src={VolImg} alt="Vol" className="w-10 h-10 object-contain" />
       
     },
@@ -18,7 +18,7 @@ export default function ServiceSelection() {
       slug: 'hotel', 
       title: 'Hôtels', 
       desc: 'Trouvez l\'hébergement parfait pour votre séjour',
-      gradient: 'from-purple-400 to-indigo-600',
+      gradient: 'from-blue-400 to-blue-600',
       icon: <img src={Hotel1Img} alt="Hotel1" className="w-10 h-10 object-contain" />
       
     },
@@ -26,14 +26,14 @@ export default function ServiceSelection() {
       slug: 'vehicule', 
       title: 'Location Véhicule', 
       desc: 'Louez la voiture adaptée à vos besoins',
-      gradient: 'from-emerald-400 to-green-600',
+      gradient: 'from-red-400 to-red-600',
       icon: <img src={voiture2Img} alt="Voiture2" className="w-10 h-10 object-contain" />
     },
     { 
       slug: 'excursion', 
       title: 'Excursions', 
       desc: 'Vivez des expériences uniques et inoubliables',
-      gradient: 'from-orange-400 to-amber-600',
+      gradient: 'from-blue-400 to-blue-600',
         icon: <img src={TourismeImg} alt="Tourisme" className="w-10 h-10 object-contain" />
       
     }
@@ -44,7 +44,7 @@ export default function ServiceSelection() {
       <div className="max-w-6xl mx-auto text-center">
         
         {/* Retour */}
-        <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-[#2c5e3a] font-medium mb-8 transition">
+        <Link to="/" className="inline-flex items-center gap-2 text-red-600 hover:text-blue-600 font-medium mb-8 transition">
            Retour à l'accueil
         </Link>
         
@@ -84,7 +84,7 @@ export default function ServiceSelection() {
                 </p>
                 
                 {/*  Bouton de réservation */}
-                <span className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-[#F5F2EB] text-[#2c5e3a] font-semibold text-sm group-hover:bg-[#9caf88] group-hover:text-white transition-all">
+                <span className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm group-hover:bg-red-600 group-hover:text-white transition-all">
                   Réserver maintenant
                   <span className="group-hover:translate-x-1 transition-transform"></span>
                 </span>

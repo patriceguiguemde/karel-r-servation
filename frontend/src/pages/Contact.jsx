@@ -229,7 +229,7 @@ Merci de me recontacter rapidement.`;
 
       {/*  BOUTON FLOTTANT WHATSAPP */}
       <a
-        href="https://wa.me/22675230293?text=Bonjour,%20je%20souhaite%20vous%20contacter%20depuis%20votre%20site%20web."
+        href="https://wa.me/22674199797?text=Bonjour,%20je%20souhaite%20vous%20contacter%20depuis%20votre%20site%20web."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all z-50 group"
