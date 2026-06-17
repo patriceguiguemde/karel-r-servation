@@ -223,7 +223,7 @@ export default function DynamicReservation() {
     setWaUrl(null);
 
     try {
-      const API_URL = 'http://localhost:8000/api/reservations';
+      const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/api'}/reservations`; // jouter
 
        const payload = { ...formData, service_type: type };
        
@@ -284,7 +284,7 @@ const waData = {
   ...cleanPayload,  
   service_type: type 
 };
-const waLink = buildWhatsAppUrl(waData, '22674199797');
+const waLink = buildWhatsAppUrl(waData, '22675230293');
 setWaUrl(waLink);
 window.open(waLink, '_blank');
 //  FIN REDIRECTION WHATSAPP 

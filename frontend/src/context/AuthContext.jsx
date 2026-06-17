@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
+// ajouter
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -18,7 +20,7 @@ export function AuthProvider({ children }) {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/user', {
+      const res = await fetch(`${API_URL}/user`, {  // modifier url
         headers: { 
           'Authorization': `Bearer ${token}`, 
           'Accept': 'application/json' 
@@ -42,7 +44,7 @@ export function AuthProvider({ children }) {
   };
 
   const login = async (email, password) => {
-    const res = await fetch('http://localhost:8000/api/login', {
+    const res = await fetch(`${API_URL}/login`, {   // modifier url
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json', 
@@ -68,7 +70,8 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       // Notification backend (optionnel mais recommandé)
-      await fetch('http://localhost:8000/api/logout', {
+    
+      await fetch(`${API_URL}/logout`, {      // modifier url
         method: 'POST',
         headers: { 
           'Authorization': `Bearer ${token}`, 

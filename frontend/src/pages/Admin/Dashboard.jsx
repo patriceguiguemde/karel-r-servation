@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'; // ajouter
+
 
 export default function AdminDashboard() {
   const { token, hasRole, logout, user } = useAuth();
@@ -26,7 +28,7 @@ export default function AdminDashboard() {
       const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' };
       
       const params = new URLSearchParams(filters);
-      const res = await fetch(`http://localhost:8000/api/admin/dashboard?${params}`, { headers });
+      const res = await fetch(`${API_URL}/admin/dashboard?${params}`, { headers }); // modifier url
       if (res.ok) {
         const data = await res.json();
         setStats(data.stats || {});
@@ -44,7 +46,7 @@ export default function AdminDashboard() {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:8000/api/admin/reservations/${id}`, {
+      const response = await fetch(`${API_URL}/admin/reservations/${id}`, {  // modifier url
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -66,7 +68,7 @@ export default function AdminDashboard() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      await fetch(`http://localhost:8000/api/admin/reservations/${id}/status`, {
+      await fetch(`${API_URL}/admin/reservations/${id}/status`, { // modifier url
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
