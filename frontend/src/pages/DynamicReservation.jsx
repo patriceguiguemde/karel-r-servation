@@ -284,7 +284,7 @@ const waData = {
   ...cleanPayload,  
   service_type: type 
 };
-const waLink = buildWhatsAppUrl(waData, '22675230293');
+const waLink = buildWhatsAppUrl(waData, '22674199797');
 setWaUrl(waLink);
 window.open(waLink, '_blank');
 //  FIN REDIRECTION WHATSAPP 
