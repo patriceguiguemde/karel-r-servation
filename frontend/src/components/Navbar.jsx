@@ -19,7 +19,10 @@ function Navbar() {
     { label: 'A PROPOS', href: '#apropos', type: 'anchor' },
     { label: 'RESERVATION', href: '/reservation', type: 'link' },
     { label: 'CONTACT', href: '/contact', type: 'link' },
+
+    
   ];
+  
 
   return (
     <nav className="bg-blue-900 px-3 py-2 sticky top-0 z-50 border-b border-gray-200">
@@ -48,6 +51,17 @@ function Navbar() {
       </Link>
     )
   )}
+
+
+   {/*  BOUTON CTA "DEMANDER UN DEVIS" - MIS EN AVANT */}
+          <Link
+            to="/devis"
+            className="ml-3 px-5 py-2 bg-yellow-400 text-blue-900 text-sm font-bold italic rounded-lg 
+                       hover:bg-yellow-500 hover:scale-105 transition-all duration-300 shadow-lg 
+                       hover:shadow-yellow-400/50"
+          >
+            DEMANDER UN DEVIS
+          </Link>
 </div>
 
     {/* HAMBURGER */}
@@ -74,6 +88,16 @@ function Navbar() {
               </Link>
             )
           )}
+
+          {/* 👇 AJOUTEZ CE CODE ICI */}
+    <Link
+      to="/devis"
+      onClick={() => setMenuOpen(false)}
+      className="px-4 py-3 bg-yellow-400 text-blue-900 text-sm font-bold italic rounded-lg 
+                 hover:bg-yellow-500 transition-colors text-center shadow-lg mt-2"
+    >
+      💼 DEMANDER UN DEVIS
+    </Link>
         </div>
       )}
     </nav>

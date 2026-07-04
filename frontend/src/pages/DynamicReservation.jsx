@@ -157,11 +157,11 @@ export default function DynamicReservation() {
   }
 
   return (
-    <div className="min-h-screen bg-blue-100 py-8 px-4">
+    <div className="min-h-screen bg-blue-300 py-8 px-4">
       <div className="max-w-4xl mx-auto">
 
         {/* Retour */}
-        <Link to="/reservation" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-6 transition text-sm md:text-base">
+        <Link to="/reservation" className="inline-flex items-center gap-2 text-white hover:text-red-800 font-medium mb-6 transition text-sm md:text-base">
            Retour aux services
         </Link>
 
@@ -172,7 +172,7 @@ export default function DynamicReservation() {
         </div>
 
         {/* Formulaire */}
-        <div className="bg-white rounded-2xl border-2 border-red-700 p-4 md:p-8 lg:p-10">
+        <div className="bg-blue-100 rounded-2xl  p-4 md:p-8 lg:p-10">
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {config.fields.map((field) => (
@@ -212,7 +212,7 @@ export default function DynamicReservation() {
                       value={formData[field.name] || ''}
                       onChange={handleChange}
                       placeholder={field.placeholder}
-                      className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition text-sm md:text-base"
+                      className="w-full px-3 py-2 md:px-4 md:py-3  bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition text-sm md:text-base"
                     />
                   )}
                 </div>

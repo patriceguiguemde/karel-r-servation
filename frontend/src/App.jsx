@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Devis from './pages/Devis'; 
 import Contact from './pages/Contact';
 import ServiceSelection from './pages/ServiceSelection';
 import DynamicReservation from './pages/DynamicReservation';
@@ -11,6 +12,8 @@ import AdminLogin from './pages/AdminLogin';
 import { useState, useEffect } from 'react'; 
 import AdminForgotPassword from './pages/admin/AdminForgotPassword';
 import AdminResetPassword from './pages/admin/AdminResetPassword';
+
+
 
 function AdminRoute({ children }) {
   const { token, hasRole, loading } = useAuth();
@@ -133,6 +136,8 @@ function App() {
               {/* Routes PUBLIQUES */}
               <Route path="/" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/devis" element={<Devis />} />
+                <Route path="/devis/:service" element={<Devis />} />
               <Route path="/reservation" element={<ServiceSelection />} />
               <Route path="/reservation/:type" element={<DynamicReservation />} />
 
@@ -149,6 +154,7 @@ function App() {
                   <AdminDashboard />
                 </AdminRoute>
               } />
+            
 
               {/* Toute route inconnue → accueil */}
               <Route path="*" element={<Navigate to="/" replace />} />

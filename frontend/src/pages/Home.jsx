@@ -8,9 +8,9 @@ export default function Home() {
         <img src="/images/accueil3.jpg" alt="Hero" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center 40%' }} />
         <div className="absolute inset-0 bg-black/60"></div>
        <div className="relative z-10 text-center text-white px-4 w-full mx-auto pb-20">
-          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-2xl !text-white" style={{color: 'white', textShadow: '2px 2px 8px rgba(0,0,0,0.9)'}}>
-  Karel Travels Excursions
-</h1>
+          <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-2xl !text-white" style={{color: 'white', textShadow: '2px 2px 8px rgba(0,0,0,0.9)'}}>
+            BIENVENUE CHEZ KAREL TRAVELS EXCURSIONS 
+           </h2>
           <p className="text-lg sm:text-xl md:text-3xl mb-4 md:mb-6 drop-shadow-lg font-light text-white">Réservez vos voyages en toute simplicité et profitez d'un service de qualité.</p>
           <p className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 text-white">Dans nos offres d'excursion et voyages</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -35,19 +35,38 @@ export default function Home() {
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-700 mb-2">Billets d'Avion</h3>
                 <p className="text-blue-500 text-sm">Réservez vos billets d'avion au meilleur prix, vers toutes les destinations.</p>
-                 <Link to="/reservation/vol" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+              
+              {/*  BOUTONS CTA AMÉLIORÉS */}
+          <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=billet-d'avion" 
+              className="w-full bg-red-400 hover:bg-red-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                 <Link to="/reservation/vol" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
         Réserver maintenant
       </Link>
               </div>
+               </div>
             </div>
             <div className="flex flex-col rounded-3xl overflow-hidden shadow-md bg-white">
               <img src="/images/hotel10.jpg" alt="Hôtellerie & Séjours" className="w-full h-52 sm:h-64 md:h-80 object-cover" onError={(e) => { e.target.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&h=500&q=80' }} />
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Hôtellerie & Séjours</h3>
                 <p className="text-blue-500 text-sm">Réservez votre chambre d'hotel idéal: confort garanti, tarifs avantageux pour individuels et groupes.</p>
-                <Link to="/reservation/hotel" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+
+                <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                <Link to="/reservation/hotel" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
         Réserver maintenant
       </Link>
+              </div>
               </div>
             </div>
             <div className="flex flex-col rounded-3xl overflow-hidden shadow-md bg-white">
@@ -55,9 +74,18 @@ export default function Home() {
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Sites touristiques</h3>
                 <p className="text-blue-500 text-sm">Découvrez nos circuits touristiques inoubliables et profitez de transferts aéroport simples et confortables.</p>
-                <Link to="/reservation/excursion" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+
+                <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-blue-900 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                <Link to="/reservation/excursion" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
         Réserver maintenant
       </Link>
+              </div>
               </div>
             </div>
             <div className="flex flex-col rounded-3xl overflow-hidden shadow-md bg-white">
@@ -65,9 +93,17 @@ export default function Home() {
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Location de Véhicules</h3>
                 <p className="text-blue-500 text-sm">Des véhicules récents et confortables pour tous vos déplacements, avec ou sans chauffeur.</p>
-                <Link to="/reservation/vehicule" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+                <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-blue-900 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                <Link to="/reservation/vehicule" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
         Réserver maintenant
       </Link>
+              </div>
               </div>
             </div>
             {/* NOUVEAU : Change de Devises */}
@@ -76,9 +112,17 @@ export default function Home() {
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Change de Devises</h3>
                 <p className="text-blue-500 text-sm">Échangez vos devises aux meilleurs taux disponibles, rapidement et en toute sécurité.</p>
-                 <Link to="/contact" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+                <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-blue-900 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                 <Link to="/contact" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
       Nous contacter
     </Link>
+              </div>
               </div>
             </div>
             
@@ -88,21 +132,37 @@ export default function Home() {
               <div className="p-5 md:p-6 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Conseil & Accompagnement Visa</h3>
                 <p className="text-blue-500 text-sm">Nous vous guidons dans toutes les démarches pour l'obtention de votre visa : constitution du dossier, suivi et conseils personnalisés.</p>
-                <Link to="/contact" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+                <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-blue-900 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+                <Link to="/contact" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
       Nous contacter
     </Link>
               </div>
+              </div>
             </div>
-            {/* Prestation d'Hôtesse */}
+           {/* Prestation d'Hôtesse */}
 <div className="flex flex-col rounded-3xl overflow-hidden shadow-md bg-white col-span-1 sm:col-span-2">
-  <img src="/images/hotesse3.jpg" alt="Prestation d'Hôtesse" className="w-full h-52 sm:h-64 md:h-80 object-cover" onError={(e) => { e.target.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&h=500&q=80' }} />
+  <img src="/images/hotesse0.jpg" alt="Prestation d'Hôtesse" className="w-full h-52 sm:h-64 md:h-80 object-cover" onError={(e) => { e.target.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&h=500&q=80' }} />
   <div className="p-5 md:p-6 text-center flex flex-col flex-grow">
     <h3 className="text-lg md:text-xl font-bold text-red-800 mb-2">Prestation d'Hôtesse</h3>
     <p className="text-blue-500 text-sm mb-4 flex-grow">Nous mettons à votre disposition des hôtesses professionnelles pour vos événements, conférences et accueils VIP.</p>
-    <Link to="/contact" className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
+    <div className="flex flex-col gap-3 mt-auto">
+            <Link 
+              to="/devis?service=hotel" 
+              className="w-full bg-red-400 hover:bg-red-500 text-blue-900 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+               Demander un devis
+            </Link>
+    <Link to="/contact" className="inline-block bg-blue-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm transition">
       Nous contacter
     </Link>
   </div>
+    </div>
 </div>
           </div>
         </div>

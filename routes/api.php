@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservationConfirmee;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Auth\PasswordResetController;
+use App\Http\Controllers\DevisController;
 
 
 
@@ -65,7 +66,7 @@ Route::post('/login', function (Request $request) {
                  return $request->user();
               });
 
-             
+             Route::post('/devis', [DevisController::class, 'store']);
     
            Route::post('/logout', function (Request $request) {
         $request->user()->currentAccessToken()->delete();
