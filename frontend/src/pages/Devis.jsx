@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const WHATSAPP_NUMBER = '22675230293'; //  Remplace par ton vrai numéro (indicatif + numéro, sans + ni espaces)
+const WHATSAPP_NUMBER = '22674199797'; //  Numéro WhatsApp
 
 export default function Devis() {
   const { service } = useParams();
